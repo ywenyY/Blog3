@@ -20,13 +20,10 @@ public class SetCharFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
          servletRequest.setCharacterEncoding("utf-8");
+        servletResponse.setCharacterEncoding("utf-8");
          servletResponse.setContentType("text/html;charset=utf-8");
          HttpSession hs = ((HttpServletRequest) servletRequest).getSession();
           HttpServletRequest request = (HttpServletRequest)servletRequest;
-        if (hs.getServletContext().getRealPath(request.getRequestURI()).contains("login.jsp") ) {
-             filterChain.doFilter(servletRequest, servletResponse);
-             return;
-        }
         if(hs.getServletContext().getRealPath(request.getRequestURI()).contains("loginServlet")){
             filterChain.doFilter(servletRequest, servletResponse);
             return;

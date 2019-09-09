@@ -17,7 +17,7 @@
 			<div id="top-navigation">
 				welcome&nbsp;&nbsp;<a href="#"><strong></strong></a>
 				<span>|</span>
-				<a href="#">退出</a>
+				<a href="login.jsp">quit</a>
 			</div>
 		</div>
 		<!-- End Logo + Top Nav -->

@@ -102,17 +102,20 @@
               <th>title</th>
               <th>date</th>
               <th>author</th>
+              <th>&nbsp&nbsp&nbsp&nbsp</th>
               <th width="110" class="ac"></th>
             </tr>
             <c:forEach items="${pb.list}" var="blogs" varStatus="s">
               <tr class="odd">
                 <td><input type="checkbox" class="checkbox" /></td>
                 <td>${s.count}</td>
-                <td><a href="${pageContext.request.contextPath}/findBlogForShowServlet?id=${blogs.id}"> ${blogs.title}</a></td>
+                <td><a href="${pageContext.request.contextPath}/findBlogForShowServlet?id=${blogs.id}">${blogs.title}</a></td>
                 <td>${blogs.date}</td>
                 <td>${blogs.author}</td>
+                <td><c:if test="${loginUser.spe == 0}">&nbsp&nbsp&nbsp&nbsp</c:if></td>
                 <c:if test="${loginUser.spe == 1}"><td><a href="javascript:deleteBlog(${blogs.id});" class="ico edit">delete</a></c:if>
-                <c:if test="${loginUser.spe == 1}"><a href="${pageContext.request.contextPath}/findBlogServlet?id=${blogs.id}" class="ico edit">Edit</a></td></c:if>
+                <td><c:if test="${loginUser.spe == 0}">&nbsp&nbsp&nbsp&nbsp</c:if></td>
+                <td><c:if test="${loginUser.spe == 1}"><a href="${pageContext.request.contextPath}/findBlogServlet?id=${blogs.id}" class="ico edit">Edit</a></td></c:if>
               </tr>
             </c:forEach>
             <!--<tr class="odd">

@@ -12,8 +12,16 @@ import java.util.Map;
 import java.util.Set;
 
 public class BlogDaoImpl implements BlogDao {
-private JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
+public JdbcTemplate template = new JdbcTemplate(JDBCUtils.getDataSource());
 
+
+    public static void main(String[] args) {
+//        System.out.println(new BlogDaoImpl().template.query("select count(title) from blog", new BeanPropertyRowMapper<Blog>(Blog.class)));
+        BlogDaoImpl blogDao = new BlogDaoImpl();
+        Blog blog = new Blog();
+        blog.setTitle("你好");
+        blogDao.addBlog(blog);
+    }
     @Override
     public List<Blog> findAll() {
         //使用JDBC操作数据库

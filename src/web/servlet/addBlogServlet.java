@@ -32,6 +32,11 @@ public class addBlogServlet extends HttpServlet {
         //req.setAttribute("title","你好————");
         Map<String,String[]> map = req.getParameterMap();
         //map.put("title",new String[]{"你好"});
+
+        map.forEach((k,v) -> {
+            System.out.println("k = " + k + ", v " + v[0]);
+        });
+
         //3.封装对象
         Blog blog = new Blog();
         try {
